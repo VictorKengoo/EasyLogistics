@@ -31,19 +31,15 @@ public class Produto {
 	String id;
 	
 	@NotNull
-	@Size(min = 1, message = "Field nome must not be null or empty")
 	String nome;
 	
 	@NotNull
-	@Size(min = 1, message = "Field preco must not be null or empty")
 	Double preco;
 	
 	@NotNull
-	@Size(min = 1, message = "Field disponivel must not be null or empty")
 	Boolean disponivel;
 	
 	@NotNull
-	@Size(min = 1, message = "Field ingredientesEQtd must not be null or empty")
 	Map<String, Integer> ingredientesEQtd;
 
 	// Getters

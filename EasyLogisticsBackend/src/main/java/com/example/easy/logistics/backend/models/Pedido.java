@@ -11,15 +11,17 @@ import javax.validation.constraints.Size;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.example.easy.logistics.backend.models.enums.PedidoStatusType;
+
 @Document
 public class Pedido {
 
-	public Pedido(String id, Map<Produto, Integer> produtosEQtd, Double valorTotal, Usuario cliente) {
+	public Pedido(String id, Map<String, Integer> produtosEQtd, String idMesa, PedidoStatusType status) {
 		super();
 		this.id = id;
 		this.produtosEQtd = produtosEQtd;
-		this.valorTotal = valorTotal;
-		this.cliente = cliente;
+		this.idMesa = idMesa;
+		this.status = PedidoStatusType.SOLICITADO;
 	}
 
 	@Id
@@ -29,30 +31,29 @@ public class Pedido {
 	
 	@NotNull
 	@Size(min = 1, message = "Field produtosEQtd must not be null or empty")
-	private Map<Produto, Integer> produtosEQtd;
-	
-	
-	private Double valorTotal;
+	private Map<String, Integer> produtosEQtd;
 	
 	@NotNull
 	@Size(min = 1, message = "Field cliente must not be null or empty")
-	private Usuario cliente;
+	private String idMesa;
+	
+	private PedidoStatusType status;
 
 	// Getters
 	public String getId() {
 		return id;
 	}
 
-	public Map<Produto, Integer> getProdutosEQtd() {
+	public Map<String, Integer> getProdutosEQtd() {
 		return produtosEQtd;
 	}
 
-	public Double getValorTotal() {
-		return valorTotal;
+	public String getIdMesa() {
+		return idMesa;
 	}
 
-	public Usuario getCliente() {
-		return cliente;
+	public PedidoStatusType getStatus() {
+		return status;
 	}
 
 	// Setters
@@ -60,15 +61,15 @@ public class Pedido {
 		this.id = id;
 	}
 
-	public void setProdutosEQtd(Map<Produto, Integer> produtosEQtd) {
+	public void setProdutosEQtd(Map<String, Integer> produtosEQtd) {
 		this.produtosEQtd = produtosEQtd;
 	}
 
-	public void setValorTotal(Double valorTotal) {
-		this.valorTotal = valorTotal;
+	public void setIdMesa(String idMesa) {
+		this.idMesa = idMesa;
 	}
 
-	public void setCliente(Usuario cliente) {
-		this.cliente = cliente;
+	public void setStatus(PedidoStatusType status) {
+		this.status = status;
 	}
 }
