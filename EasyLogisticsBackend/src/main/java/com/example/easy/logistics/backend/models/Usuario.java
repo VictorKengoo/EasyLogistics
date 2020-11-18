@@ -10,16 +10,24 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.example.easy.logistics.backend.models.enums.UsuarioType;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 @Document
 public class Usuario {	
-	public Usuario(String id, String nome, UsuarioType tipoUsuario) {
+	public Usuario(String id, 
+			@NotNull @Size(min = 1, message = "Field nome must not be null or empty") String nome,
+			@NotNull String email, 
+			@NotNull String senha, 
+			@NotNull UsuarioType tipoUsuario) {
 		super();
 		this.id = id;
 		this.nome = nome;
+		this.email = email;
+		this.senha = senha;
 		this.tipoUsuario = tipoUsuario;
 	}
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "author_generator")
 	@SequenceGenerator(name="author_generator", sequenceName = "author_seq", allocationSize = 1)
@@ -28,6 +36,13 @@ public class Usuario {
 	@NotNull
 	@Size(min = 1, message = "Field nome must not be null or empty")
 	String nome;
+
+	@NotNull
+	String email;
+	
+	@NotNull
+	@JsonProperty(access = Access.WRITE_ONLY)
+	String senha;
 	
 	@NotNull
 	UsuarioType tipoUsuario;
@@ -42,6 +57,13 @@ public class Usuario {
 	public UsuarioType getTipoUsuario() {
 		return tipoUsuario;
 	}
+	public String getEmail() {
+		return email;
+	}
+	
+	public String getSenha() {
+		return senha;
+	}
 	
 	// Setters
 	public void setId(String id) {
@@ -53,7 +75,10 @@ public class Usuario {
 	public void setTipoUsuario(UsuarioType tipoUsuario) {
 		this.tipoUsuario = tipoUsuario;
 	}
-	
-	
-	
+	public void setEmail(String email) {
+		this.email = email;
+	}	
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}	
 }

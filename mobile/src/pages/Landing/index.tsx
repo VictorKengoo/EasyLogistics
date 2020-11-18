@@ -30,9 +30,7 @@ function Landing() {
         <Image source={filesMan} style={styles.filesMan} />
 
         <RectButton style={styles.button} onPress={handleNavigateToRegisterPage} >
-
           <Text style={styles.buttonText}>Controlar meu estoque</Text>
-
         </RectButton>
 
       </View>

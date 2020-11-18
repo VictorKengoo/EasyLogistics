@@ -4,9 +4,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    justifyContent: 'center',
     alignItems: 'center',
-    padding: 45
+    paddingTop: 250,
   },
   pageBackground: {
     flex: 1,
@@ -15,52 +14,46 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   text: {
-    paddingRight: 40,
+    paddingRight: 15,
     color: 'black',
     fontSize: 20,
     textAlign: "left",
-    position: 'absolute',
-    width: 235,
+    width: 240,
     height: 100,
-    left: 150,
-    top: 277,
+    marginLeft: 170,
     fontFamily: 'Poppins_400Regular',
     fontStyle: 'normal',
     lineHeight: 27,
+    marginBottom: 27
   },
   filesMan: {
-    position: 'absolute',
-    left: 20,
-    top: 397,
+    marginBottom: 70,
   },
   title: {
+    position: 'absolute',
+    top: 110,
     fontFamily: 'Poppins_400Regular',
     color: 'black',
     fontSize: 30,
-    lineHeight: 50,
-    top: -224,
+    lineHeight: 25,
   },
   titleBig: {
     fontFamily: 'Poppins_800ExtraBold',
     fontSize: 45,
-    lineHeight: 50,
+    lineHeight: 55,
   },
   button: {
-    position: 'absolute',
     backgroundColor: '#5A50D2',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 14,
-    width: 309,
+    width: 313,
     height: 68,
-    left: 25,
-    top: 661,
   },
   buttonText: {
     fontFamily: 'Poppins_700Bold',
     color: '#F1F0EE',
     fontSize: 20,
-
   },
 })
 
