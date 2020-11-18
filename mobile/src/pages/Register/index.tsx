@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { View, Text, ImageBackground, Linking, Alert, KeyboardAvoidingView } from 'react-native'
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 import styles from './styles'
 
@@ -10,6 +9,7 @@ import { useNavigation } from '@react-navigation/native'
 import successMessage from '../../components/SuccessMessage'
 import errorMessage from '../../components/ErrorMessage'
 import api from '../../services/api'
+import { backendBaseURL } from '../../../myConfig.json'
 
 function Register() {
   const successAlert = successMessage
@@ -21,7 +21,6 @@ function Register() {
   const [tipoUsuario, setTipoUsuario] = useState('')
 
   async function handleCreateUser() {
-
     await api.post('/usuario', {
       nome,
       email,
@@ -31,6 +30,7 @@ function Register() {
       successAlert()
       handleNavigateToLoginPage()
     }).catch(() => {
+      console.log(backendBaseURL)
       errorAlert()
     })
   }

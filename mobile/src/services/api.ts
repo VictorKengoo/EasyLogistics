@@ -1,7 +1,8 @@
 import axios from 'axios'
+import { backendBaseURL } from '../../myConfig.json'
 
 const api = axios.create({
-  baseURL: 'http://localhost:8080'
+  baseURL: backendBaseURL
 })
 
 export default api
