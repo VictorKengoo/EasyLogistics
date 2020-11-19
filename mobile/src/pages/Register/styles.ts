@@ -34,6 +34,10 @@ const styles = StyleSheet.create({
     marginBottom: 34,
     justifyContent: 'center',
     paddingHorizontal: 16,
+    shadowOffset: { width: 6, height: 0 },
+    shadowOpacity: 0.46,
+    shadowRadius: 20,
+    elevation: 5,
   },
   button: {
     backgroundColor: '#5A50D2',
@@ -43,6 +47,10 @@ const styles = StyleSheet.create({
     width: 313,
     height: 68,
     marginBottom: 8,
+    shadowOffset: { width: 6, height: 0 },
+    shadowOpacity: 0.46,
+    shadowRadius: 20,
+    elevation: 5,
   },
   buttonText: {
     fontFamily: 'Poppins_700Bold',

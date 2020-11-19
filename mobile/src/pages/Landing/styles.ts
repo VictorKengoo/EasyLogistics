@@ -49,6 +49,10 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     width: 313,
     height: 68,
+    shadowOffset: { width: 6, height: 0 },
+    shadowOpacity: 0.46,
+    shadowRadius: 20,
+    elevation: 5,
   },
   buttonText: {
     fontFamily: 'Poppins_700Bold',

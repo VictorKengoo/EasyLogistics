@@ -16,5 +16,4 @@ public interface UsuarioService {
 	Usuario update(Usuario usuario);
 	
 	void remove(String id);
-	
 }

@@ -9,7 +9,6 @@ import { useNavigation } from '@react-navigation/native'
 import successMessage from '../../components/SuccessMessage'
 import errorMessage from '../../components/ErrorMessage'
 import api from '../../services/api'
-import { backendBaseURL } from '../../../myConfig.json'
 
 function Register() {
   const successAlert = successMessage
@@ -30,7 +29,6 @@ function Register() {
       successAlert()
       handleNavigateToLoginPage()
     }).catch(() => {
-      console.log(backendBaseURL)
       errorAlert()
     })
   }

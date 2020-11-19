@@ -1,9 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import AppStack from './src/routes/AppStack'
+import React, { useEffect, useState } from 'react';
+import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
+// import AppStack from './src/routes/AppStack'
 import { AppLoading } from 'expo';
 import { useFonts, Poppins_400Regular, Poppins_600SemiBold, Poppins_800ExtraBold, Poppins_700Bold } from '@expo-google-fonts/poppins';
+import { AuthProvider } from './src/contexts/auth'
+import Routes from './src/routes'
+import { NavigationContainer } from '@react-navigation/native';
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -17,10 +20,12 @@ export default function App() {
     return <AppLoading />
   } else {
     return (
-      <>
-        <AppStack />
+      <NavigationContainer>
+        <AuthProvider>
+          <Routes />
+        </AuthProvider>
         <StatusBar style='auto' />
-      </>
+      </NavigationContainer>
     );
   }
 }

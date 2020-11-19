@@ -1,8 +1,6 @@
 package com.example.easy.logistics.backend.models;
 
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -29,8 +27,7 @@ public class Usuario {
 	}
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "author_generator")
-	@SequenceGenerator(name="author_generator", sequenceName = "author_seq", allocationSize = 1)
+	@GeneratedValue
 	String id;
 	
 	@NotNull
