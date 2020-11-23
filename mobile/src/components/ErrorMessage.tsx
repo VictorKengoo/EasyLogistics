@@ -1,10 +1,10 @@
 import React from 'react'
 import { Alert } from "react-native";
 
-const createErrorMessage = () =>
+const createErrorMessage = (message: string) =>
   Alert.alert(
     "Erro",
-    "Erro no cadastro",
+    message,
     [
       { text: "OK", onPress: () => console.log("OK Pressed") }
     ],

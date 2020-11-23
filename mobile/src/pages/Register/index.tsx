@@ -29,9 +29,10 @@ function Register() {
       successAlert()
       handleNavigateToLoginPage()
     }).catch(() => {
-      errorAlert()
+      errorAlert("Erro no cadastro")
     })
   }
+
   function handleNavigateToLoginPage() {
     navigate('Login')
   }
@@ -76,7 +77,7 @@ function Register() {
         </RectButton>
 
         <View>
-          <Text>
+          <Text style={styles.loginText}>
             Já possui um cadastro ?
             <Text style={{ color: 'blue' }} onPress={handleNavigateToLoginPage}>
               {' '}Entrar

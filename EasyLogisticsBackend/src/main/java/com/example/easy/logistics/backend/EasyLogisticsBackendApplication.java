@@ -10,5 +10,4 @@ public class EasyLogisticsBackendApplication {
 		SpringApplication.run(EasyLogisticsBackendApplication.class, args);
 		System.out.print("Application EasyLogistics Started !! ");
 	}
-
 }

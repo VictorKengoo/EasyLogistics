@@ -25,7 +25,7 @@ function Landing() {
             {"\n"}EasyLogistics
           </Text>
         </Text>
-        <Text style={styles.text}>Onde seu estoque é controlado, do jeito que você sempre quis.</Text>
+        <Text style={styles.text}>Onde seu negócio é controlado, do jeito que você sempre quis.</Text>
 
         <Image source={filesMan} style={styles.filesMan} />
 

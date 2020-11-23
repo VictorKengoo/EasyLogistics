@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { View, Text, ImageBackground, KeyboardAvoidingView, Image } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import styles from './styles'
@@ -9,15 +9,25 @@ import pageBackground from '../../assets/images/pageBackground.png'
 import phoneMan from '../../assets/images/phoneMan.png'
 import { RectButton, TextInput } from 'react-native-gesture-handler'
 import { sign } from 'crypto'
+import errorMessage from '../../components/ErrorMessage'
 
 function Login() {
   const { signed, user, signIn } = useContext(AuthContext)
   const { navigate } = useNavigation()
+  const errorAlert = errorMessage
   console.log(signed)
   console.log(user)
+
+  const [email, setEmail] = useState('')
+  const [senha, setSenha] = useState('')
+
   function handleLogin() {
-    signIn()
-    // navigate('Main')
+    if (email == "victor@victor.com" && senha == "senhavictor") {
+      signIn()
+      navigate('Main')
+    } else {
+      errorAlert("Dados inválidos no login.")
+    }
   }
 
   return (
@@ -29,10 +39,12 @@ function Login() {
         <Image source={phoneMan} style={styles.phoneMan} />
         <View style={styles.inputs}>
           <TextInput
+            onChangeText={text => setEmail(text)}
             style={styles.input}
             placeholder='Escreva seu Email'
           />
           <TextInput
+            onChangeText={text => setSenha(text)}
             style={styles.input}
             secureTextEntry={true}
             placeholder='Escreva sua senha'

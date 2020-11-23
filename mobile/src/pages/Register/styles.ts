@@ -57,6 +57,10 @@ const styles = StyleSheet.create({
     color: '#F1F0EE',
     fontSize: 20,
   },
+  loginText: {
+    fontFamily: 'Poppins_400Regular',
+    fontSize: 15
+  }
 })
 
 export default styles
