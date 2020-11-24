@@ -1,13 +1,10 @@
 package com.example.easy.logistics.backend.models;
 
-import java.util.Map;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -16,7 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Entity
 public class Produto {
 
-	public Produto(String id, String nome, Boolean disponivel, Map<String, Integer> ingredientesEQtd, Double preco) {
+	public Produto(String id, String nome, Boolean disponivel, ProdutoEQtd[] ingredientesEQtd, Double preco) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -40,7 +37,7 @@ public class Produto {
 	Boolean disponivel;
 	
 	@NotNull
-	Map<String, Integer> ingredientesEQtd;
+	ProdutoEQtd[] ingredientesEQtd;
 
 	// Getters
 	public String getId() {
@@ -51,7 +48,7 @@ public class Produto {
 		return nome;
 	}
 
-	public Map<String, Integer> getIngredientesEQtd() {
+	public ProdutoEQtd[] getIngredientesEQtd() {
 		return ingredientesEQtd;
 	}
 
@@ -72,7 +69,7 @@ public class Produto {
 		this.nome = nome;
 	}
 
-	public void setIngredientesEQtd(Map<String, Integer> ingredientesEQtd) {
+	public void setIngredientesEQtd(ProdutoEQtd[] ingredientesEQtd) {
 		this.ingredientesEQtd = ingredientesEQtd;
 	}
 

@@ -11,11 +11,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 public class Estoque {
 	
-	public Estoque(String id, String nome, Integer qtdDisponivel) {
+	public Estoque(String id, String nome, Integer qtdDisponivel, Integer qtdMinima) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.qtdDisponivel = qtdDisponivel;
+		this.qtdMinima = qtdMinima;
 	}
 	
 	@Id
@@ -25,7 +26,9 @@ public class Estoque {
 	
 	private String nome;
 	
-	private Integer qtdDisponivel;	
+	private Integer qtdDisponivel;
+	
+	private Integer qtdMinima;
 	
 	// Getters
 	public String getId() {
@@ -42,6 +45,10 @@ public class Estoque {
 		return nome;
 	}
 	
+	public Integer getQtdMinima() {
+		return qtdMinima;
+	}
+	
 	// Setters
 	public void setId(String id) {
 		this.id = id;
@@ -51,5 +58,9 @@ public class Estoque {
 	}
 	public void setQtdDisponivel(Integer qtdDisponivel) {
 		this.qtdDisponivel = qtdDisponivel;
+	}
+
+	public void setQtdMinima(Integer qtdMinima) {
+		this.qtdMinima = qtdMinima;
 	}	
 }

@@ -1,10 +1,10 @@
 import React from 'react'
 import { Alert } from "react-native";
 
-const createSuccessMessage = () =>
+const createSuccessMessage = (message: string) =>
   Alert.alert(
     "Success",
-    "Usuário cadastrado com sucesso!",
+    message,
     [
       {
         text: "Cancel",

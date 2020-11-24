@@ -3,18 +3,15 @@ import { View, Text, ImageBackground, KeyboardAvoidingView, Image } from 'react-
 import { useNavigation } from '@react-navigation/native'
 import styles from './styles'
 import AuthContext from '../../contexts/auth'
-import { signIn } from '../../services/auth'
 
 import pageBackground from '../../assets/images/pageBackground.png'
 import phoneMan from '../../assets/images/phoneMan.png'
 import { RectButton, TextInput } from 'react-native-gesture-handler'
-import { sign } from 'crypto'
 import errorMessage from '../../components/ErrorMessage'
 
 function Login() {
   const { signed, user, signIn } = useContext(AuthContext)
   const { navigate } = useNavigation()
-  const errorAlert = errorMessage
   console.log(signed)
   console.log(user)
 
@@ -22,12 +19,8 @@ function Login() {
   const [senha, setSenha] = useState('')
 
   function handleLogin() {
-    if (email == "victor@victor.com" && senha == "senhavictor") {
-      signIn()
-      navigate('Main')
-    } else {
-      errorAlert("Dados inválidos no login.")
-    }
+    signIn()
+    navigate('Main')
   }
 
   return (

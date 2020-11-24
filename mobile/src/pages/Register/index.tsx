@@ -26,7 +26,7 @@ function Register() {
       senha,
       tipoUsuario
     }).then(() => {
-      successAlert()
+      successAlert("Usuário cadastrado com sucesso!")
       handleNavigateToLoginPage()
     }).catch(() => {
       errorAlert("Erro no cadastro")

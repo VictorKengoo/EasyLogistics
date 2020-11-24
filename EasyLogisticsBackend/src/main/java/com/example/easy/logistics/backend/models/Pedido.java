@@ -1,7 +1,5 @@
 package com.example.easy.logistics.backend.models;
 
-import java.util.Map;
-
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.SequenceGenerator;
@@ -16,12 +14,12 @@ import com.example.easy.logistics.backend.models.enums.PedidoStatusType;
 @Document
 public class Pedido {
 
-	public Pedido(String id, Map<String, Integer> produtosEQtd, String idMesa, PedidoStatusType status) {
+	public Pedido(String id, ProdutoEQtd[] produtosEQtd, String idMesa, PedidoStatusType status) {
 		super();
 		this.id = id;
 		this.produtosEQtd = produtosEQtd;
 		this.idMesa = idMesa;
-		this.status = PedidoStatusType.SOLICITADO;
+		this.status = status;
 	}
 
 	@Id
@@ -31,7 +29,7 @@ public class Pedido {
 	
 	@NotNull
 	@Size(min = 1, message = "Field produtosEQtd must not be null or empty")
-	private Map<String, Integer> produtosEQtd;
+	private ProdutoEQtd[] produtosEQtd;
 	
 	@NotNull
 	@Size(min = 1, message = "Field cliente must not be null or empty")
@@ -44,7 +42,7 @@ public class Pedido {
 		return id;
 	}
 
-	public Map<String, Integer> getProdutosEQtd() {
+	public ProdutoEQtd[] getProdutosEQtd() {
 		return produtosEQtd;
 	}
 
@@ -61,7 +59,7 @@ public class Pedido {
 		this.id = id;
 	}
 
-	public void setProdutosEQtd(Map<String, Integer> produtosEQtd) {
+	public void setProdutosEQtd(ProdutoEQtd[] produtosEQtd) {
 		this.produtosEQtd = produtosEQtd;
 	}
 
