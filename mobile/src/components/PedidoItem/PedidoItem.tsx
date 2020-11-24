@@ -56,7 +56,6 @@ const PedidoItem: React.FC<Pedido> = ({ produtosEQtd, status, id, idMesa }) => {
                 "qtdDisponivel": amount
               },
             ).then(() => {
-              successAlert("Estoque alterado com sucesso!")
               navigate('Main')
             }).catch(() => {
               errorAlert("Erro na operação para o id: {" + ingredientItem.id + "}")
